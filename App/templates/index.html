@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User class definer</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #9b9696;
+        }
+        .container{
+            background-color: white;
+            padding: 15px;
+            box-shadow: 5px 10px 5px rgba(0,0,0,0.125);
+            border-radius: 10px;
+            height: auto;
+        }
+
+        .title{
+            padding: 10px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid;
+        }
+
+        form{
+            justify-content: space-between;
+        }
+
+        #label{
+            padding-top: 15px;
+            font-weight: bold;
+        }
+
+        .inputfield{
+            padding: 8px;
+            font-size: 1.2rem;
+        }
+        #btn{
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 25px; 
+            border: 0px;
+            background:  black;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 6px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        #input{
+            width: 100%;
+            outline: none;
+            border: 1.5px solid #323333;
+            font-size: 15px;
+            padding: 8px 18px;
+            border-radius: 5px;
+        }
+
+
+        .radio{
+            padding: 10px;
+            text-align: center;
+            font-size: 1.3rem;
+            display: inline;
+        }
+
+        #btn:hover{
+            background-color: #9b9696;
+        }
+        
+        #result {
+            text-align: center;
+            color: blue;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h2>User Class Behavior Predictor</h2>
+        </div>
+
+        <form action="/" method="post">
+
+            <!--Operating System-->
+            <div class="inputfield">
+                <label id="label" for="os">Operating System</label> 
+                <div class="radio">
+                    <input class="radiobtn" type="radio" name="devicemodel" value="Android" required> Android
+                    <input class="radiobtn" type="radio" name="devicemodel" value="iOS" required> iOS
+                </div>
+                    
+            </div>
+            <!--App Usage time (min/day)-->
+            <div class="inputfield">
+                <label id="label" for="aut">App Usage time (min/day)</label>
+                <input id="input"  type="number" name="aut" required>      
+            </div>
+
+            <!--Screen on time (hours/day)-->
+            <div class="inputfield">
+                <label id="label" for="sot">Screen on time (hours/day)</label>
+                <input id="input"  type="number" name="sot" required>      
+            </div>
+
+             <!--Battery Drain (mAh/day)-->
+             <div class="inputfield">
+                <label id="label" for="bd">Battery Drain (mAh/day)</label>
+                <input id="input"  type="number" name="bd" required>      
+            </div>
+
+            <!--Number of app Installed-->
+            <div class="inputfield">
+                <label id="label" for="noai">Number of app Installed</label>
+                <input id="input"  type="number" name="noai" required>      
+            </div>
+
+            <!--Data usage (MB/day)-->
+            <div class="inputfield">
+                <label id="label" for="du">Data usage (MB/day)</label>
+                <input id="input"  type="number" name="du" required>      
+            </div>
+
+            <div class="inputfield">
+                <label id="label" for="age">Age</label>
+                <input id="input"  type="number" name="age" required>      
+            </div>
+
+            <!--Operating System-->
+            <div class="inputfield">
+                <label id="label" for="gender">Gender</label>
+                <div class="radio">
+                    <input class="radiobtn" type="radio" name="gender" value="Male" required> Male
+                    <input class="radiobtn" type="radio" name="gender" value="Female" required > Female
+                </div>
+
+            </div>
+
+
+             <!--Submit-->
+             <div class="inputfield">
+                <input type="submit" value="Predict Class" id="btn">
+            </div>
+        </form>
+
+        
+        {% if pred != 0 %}
+        <p id="result">
+            User Behavior class : {{pred}}
+        </p>
+        {% endif %}
+
+    </div>
+</body>
+</html>
